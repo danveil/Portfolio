@@ -1,0 +1,35 @@
+export const education = [
+  {
+    institution: "Universiti Malaya",
+    qualification: "Bachelor of Computer Science",
+    detail: "Computer System & Network",
+    period: "2024 — Present",
+    score: "CGPA 3.05",
+    coursework: [
+      "Computer Networks",
+      "Routing & Switching",
+      "Operating Systems",
+      "System Architecture",
+      "Network Security",
+      "Cybersecurity",
+      "Data Structures",
+      "Database Systems",
+    ],
+  },
+  {
+    institution: "Pusat Asasi Sains Universiti Malaya",
+    qualification: "Foundation in Physical Science",
+    detail: "Pre-university foundation programme",
+    period: "2023 — 2024",
+    score: "CGPA 4.00 · MUET Band 3.5",
+    coursework: [],
+  },
+  {
+    institution: "Sekolah Menengah Sains Tapah",
+    qualification: "Sijil Pelajaran Malaysia",
+    detail: "Secondary education",
+    period: "Completed",
+    score: "SPM 9A",
+    coursework: [],
+  },
+] as const;

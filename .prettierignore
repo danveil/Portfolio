@@ -1,0 +1,8 @@
+.next/
+node_modules/
+.pnpm-store/
+coverage/
+public/og.png
+pnpm-lock.yaml
+AGENTS.md
+CLAUDE.md
