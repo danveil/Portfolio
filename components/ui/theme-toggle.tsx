@@ -7,6 +7,7 @@ export function ThemeToggle() {
     const next = !document.documentElement.classList.contains("dark");
     document.documentElement.classList.toggle("dark", next);
     localStorage.setItem("afiq-theme", next ? "dark" : "light");
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", next ? "#07111f" : "#f7f3eb");
   }
 
   return (

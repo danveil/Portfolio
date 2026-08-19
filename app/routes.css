@@ -166,12 +166,12 @@
     monospace;
 }
 .filter-scroller button.active {
-  color: #04131b;
+  color: var(--button-text);
   border-color: var(--accent);
   background: var(--accent);
 }
 .filter-scroller button.active span {
-  color: #194d59;
+  color: var(--button-subtext);
 }
 .projects-grid {
   display: grid;
@@ -868,4 +868,26 @@
   .problem-solution section {
     padding: 21px;
   }
+}
+
+:root:not(.dark) .projects-hero,
+:root:not(.dark) .detail-hero {
+  background-color: color-mix(in srgb, var(--surface-2) 34%, var(--bg));
+}
+
+:root:not(.dark) .project-search,
+:root:not(.dark) .filter-scroller button,
+:root:not(.dark) .case-file,
+:root:not(.dark) .detail-aside blockquote,
+:root:not(.dark) .error-terminal {
+  box-shadow: 0 14px 38px rgba(72, 51, 36, 0.07);
+}
+
+:root:not(.dark) .filter-scroller button:hover:not(.active) {
+  color: var(--accent);
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--line));
+}
+
+:root:not(.dark) .detail-hero .project-visual {
+  border-color: var(--project-line);
 }

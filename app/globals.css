@@ -1,19 +1,34 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #f5f8fb;
-  --surface: #ffffff;
-  --surface-2: #edf3f8;
-  --text: #0b1b2c;
-  --muted: #53677b;
-  --line: #ccdae6;
-  --accent: #007e9b;
-  --accent-2: #1268cf;
-  --terminal: #07111f;
-  --green: #54dfa1;
+  color-scheme: light;
+  --bg: #f7f3eb;
+  --surface: #fffdf9;
+  --surface-2: #eee7dc;
+  --text: #2e2a25;
+  --muted: #655e56;
+  --line: #d9d0c4;
+  --accent: #b45435;
+  --accent-2: #8c6550;
+  --terminal: #fbf7f1;
+  --green: #a84d31;
+  --button-text: #fffaf5;
+  --button-subtext: rgba(255, 250, 245, 0.82);
+  --terminal-bar: #eee5da;
+  --terminal-text: #332e29;
+  --terminal-muted: #70675e;
+  --terminal-line: #d8cec1;
+  --terminal-prompt: #a84d31;
+  --terminal-footer: #f1e9df;
+  --project-canvas: #f0e8dd;
+  --project-grid: #d9cbbd;
+  --project-line: #c39178;
+  --shadow-soft: 0 18px 50px rgba(72, 51, 36, 0.09);
+  --shadow-raised: 0 24px 70px rgba(72, 51, 36, 0.13);
 }
 
 .dark {
+  color-scheme: dark;
   --bg: #050b14;
   --surface: #0b1725;
   --surface-2: #0e1c2b;
@@ -22,6 +37,10 @@
   --line: #1e3549;
   --accent: #48d7ec;
   --accent-2: #4e96ff;
+  --terminal: #07111f;
+  --green: #54dfa1;
+  --button-text: #04131b;
+  --button-subtext: #194d59;
 }
 
 * {
@@ -240,7 +259,7 @@ h1 em {
   transform: translateY(-2px);
 }
 .button.primary {
-  color: #04131b;
+  color: var(--button-text);
   background: var(--accent);
   border-color: var(--accent);
 }
@@ -529,7 +548,7 @@ h1 em {
   padding: 10px 14px;
   border-radius: 7px;
   background: var(--accent);
-  color: #04131b;
+  color: var(--button-text);
   font-weight: 800;
   transform: translateY(-160%);
 }
@@ -1880,4 +1899,203 @@ h1 em {
 }
 .copyright {
   text-align: right;
+}
+
+/* Warm editorial light theme. Dark mode intentionally keeps the original rules above. */
+:root:not(.dark) body {
+  background:
+    radial-gradient(circle at 82% 6%, color-mix(in srgb, var(--accent) 4%, transparent), transparent 24rem), var(--bg);
+}
+
+:root:not(.dark) .site-header {
+  background: color-mix(in srgb, var(--bg) 90%, transparent);
+  box-shadow: 0 1px 0 rgba(72, 51, 36, 0.03);
+}
+
+:root:not(.dark) .section-light {
+  background: color-mix(in srgb, var(--surface-2) 42%, var(--bg));
+}
+
+:root:not(.dark) .button.secondary,
+:root:not(.dark) .icon-button,
+:root:not(.dark) .back-to-top {
+  box-shadow: 0 5px 16px rgba(72, 51, 36, 0.06);
+}
+
+:root:not(.dark) .button.primary:hover {
+  background: #9d452b;
+  border-color: #9d452b;
+  box-shadow: 0 10px 24px rgba(157, 69, 43, 0.2);
+}
+
+:root:not(.dark) .button.secondary:hover,
+:root:not(.dark) .button.ghost:hover {
+  color: var(--accent);
+  border-color: color-mix(in srgb, var(--accent) 48%, var(--line));
+  background: color-mix(in srgb, var(--accent) 5%, var(--surface));
+}
+
+:root:not(.dark) .skill-card,
+:root:not(.dark) .project-card,
+:root:not(.dark) .experience-card,
+:root:not(.dark) .highlight-card,
+:root:not(.dark) .education-card,
+:root:not(.dark) .cert-card,
+:root:not(.dark) .subnet-panel,
+:root:not(.dark) .research-console,
+:root:not(.dark) .contact-form {
+  box-shadow: var(--shadow-soft);
+}
+
+:root:not(.dark) .skill-card:hover,
+:root:not(.dark) .project-card:hover {
+  box-shadow: var(--shadow-raised);
+}
+
+:root:not(.dark) .identity-tags span,
+:root:not(.dark) .skill-items span,
+:root:not(.dark) .tech-list span,
+:root:not(.dark) .coursework span,
+:root:not(.dark) .concept-tags span,
+:root:not(.dark) .detail-stack span {
+  background: color-mix(in srgb, var(--surface-2) 78%, var(--surface));
+}
+
+:root:not(.dark) .terminal-preview,
+:root:not(.dark) .portfolio-terminal {
+  border-color: var(--terminal-line);
+  background: color-mix(in srgb, var(--terminal) 97%, transparent);
+  color: var(--terminal-text);
+  box-shadow:
+    0 28px 80px rgba(72, 51, 36, 0.16),
+    inset 0 1px rgba(255, 255, 255, 0.75);
+}
+
+:root:not(.dark) .terminal-preview::before,
+:root:not(.dark) .portfolio-terminal::before {
+  background: linear-gradient(transparent 50%, rgba(180, 84, 53, 0.022) 50%);
+}
+
+:root:not(.dark) .terminal-bar {
+  border-bottom-color: var(--terminal-line);
+  background: var(--terminal-bar);
+}
+
+:root:not(.dark) .terminal-bar p {
+  color: var(--terminal-muted);
+}
+
+:root:not(.dark) .terminal-bar span:nth-child(1) {
+  background: #c97963;
+}
+
+:root:not(.dark) .terminal-bar span:nth-child(2) {
+  background: #c29b61;
+}
+
+:root:not(.dark) .terminal-bar span:nth-child(3) {
+  background: #789279;
+}
+
+:root:not(.dark) .terminal-body b,
+:root:not(.dark) .error-terminal span,
+:root:not(.dark) .route-loading span {
+  color: var(--terminal-prompt);
+}
+
+:root:not(.dark) .terminal-output,
+:root:not(.dark) .portfolio-terminal .terminal-output {
+  border-left-color: var(--terminal-line);
+  color: var(--terminal-muted);
+}
+
+:root:not(.dark) .terminal-form input {
+  color: var(--terminal-text);
+}
+
+:root:not(.dark) .terminal-cursor,
+:root:not(.dark) .cursor {
+  background: var(--terminal-prompt);
+}
+
+:root:not(.dark) .terminal-hint {
+  color: color-mix(in srgb, var(--terminal-muted) 76%, transparent);
+}
+
+:root:not(.dark) .portfolio-terminal .terminal-body {
+  scrollbar-color: color-mix(in srgb, var(--terminal-muted) 40%, transparent) transparent;
+}
+
+:root:not(.dark) .terminal-footer {
+  border-top-color: var(--terminal-line);
+  color: var(--terminal-muted);
+  background: var(--terminal-footer);
+}
+
+:root:not(.dark) .project-visual {
+  color: var(--accent);
+  background: var(--project-canvas);
+}
+
+:root:not(.dark) .project-visual::before {
+  border-color: var(--project-line);
+  box-shadow:
+    0 0 0 20px rgba(180, 84, 53, 0.025),
+    0 0 55px rgba(180, 84, 53, 0.1);
+}
+
+:root:not(.dark) .visual-grid {
+  background-image:
+    linear-gradient(var(--project-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--project-grid) 1px, transparent 1px);
+}
+
+:root:not(.dark) .project-visual svg {
+  filter: drop-shadow(0 8px 14px rgba(180, 84, 53, 0.18));
+}
+
+:root:not(.dark) .visual-code,
+:root:not(.dark) .visual-index {
+  color: color-mix(in srgb, var(--accent) 62%, var(--muted));
+}
+
+:root:not(.dark) .research-badge,
+:root:not(.dark) .report-row em {
+  color: #8d5c45;
+}
+
+:root:not(.dark) .research-badge {
+  border-color: color-mix(in srgb, #8d5c45 35%, var(--line));
+  background: color-mix(in srgb, #8d5c45 5%, transparent);
+}
+
+:root:not(.dark) .report-row strong {
+  color: #9a603d;
+}
+
+:root:not(.dark) .field input,
+:root:not(.dark) .field textarea {
+  background: #fbf8f2;
+}
+
+:root:not(.dark) .footer {
+  border-top: 1px solid var(--line);
+  background: #eee6db;
+  color: var(--text);
+}
+
+:root:not(.dark) .footer-grid > div:first-child > p:last-child,
+:root:not(.dark) .copyright {
+  color: var(--muted);
+}
+
+:root:not(.dark) .footer-socials a {
+  border-color: var(--line);
+  color: var(--muted);
+  background: color-mix(in srgb, var(--surface) 72%, transparent);
+}
+
+:root:not(.dark) .footer-socials a:hover {
+  color: var(--accent);
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
 }

@@ -78,7 +78,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Script
           id="theme-init"
           strategy="beforeInteractive"
-        >{`try{const t=localStorage.getItem('afiq-theme');document.documentElement.classList.toggle('dark',t?t==='dark':true)}catch(e){document.documentElement.classList.add('dark')}`}</Script>
+        >{`try{const t=localStorage.getItem('afiq-theme');const d=t?t==='dark':true;document.documentElement.classList.toggle('dark',d);document.querySelector('meta[name="theme-color"]')?.setAttribute('content',d?'#07111f':'#f7f3eb')}catch(e){document.documentElement.classList.add('dark')}`}</Script>
         <a className="skip-link" href="#main-content">
           Skip to main content
         </a>
