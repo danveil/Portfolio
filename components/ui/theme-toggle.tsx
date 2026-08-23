@@ -7,7 +7,14 @@ export function ThemeToggle() {
     const next = !document.documentElement.classList.contains("dark");
     document.documentElement.classList.toggle("dark", next);
     localStorage.setItem("afiq-theme", next ? "dark" : "light");
-    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", next ? "#07111f" : "#f7f3eb");
+
+    // Let the page repaint before updating browser chrome. On mobile Chromium,
+    // doing both in one frame can briefly clear the page's composited layers.
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        document.querySelector('meta[name="theme-color"]')?.setAttribute("content", next ? "#07111f" : "#f7f3eb");
+      });
+    });
   }
 
   return (

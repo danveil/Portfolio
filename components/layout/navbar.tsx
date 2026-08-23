@@ -70,51 +70,53 @@ export function Navbar() {
   }, [open]);
 
   return (
-    <header className="site-header">
-      <div className="nav-inner container">
-        <Link href="/#home" className="brand" aria-label="Afiq portfolio home">
-          <span>afiq@portfolio</span>
-          <b>:</b>
-        </Link>
-        <nav className="desktop-nav" aria-label="Primary navigation">
-          {navigation.map((item) => (
-            <Link key={item.label} href={item.href} className={active === item.label ? "active" : ""}>
-              {item.label}
-            </Link>
-          ))}
-        </nav>
-        <div className="nav-actions">
-          <a
-            className="icon-button desktop-social"
-            href={siteConfig.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-          >
-            <Github size={17} />
-          </a>
-          <a
-            className="icon-button desktop-social"
-            href={siteConfig.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-          >
-            <Linkedin size={17} />
-          </a>
-          <ThemeToggle />
-          <button
-            ref={menuButtonRef}
-            className="icon-button menu-button"
-            type="button"
-            onClick={() => setOpen(true)}
-            aria-label="Open navigation menu"
-            aria-expanded={open}
-          >
-            <Menu size={19} />
-          </button>
+    <>
+      <header className="site-header">
+        <div className="nav-inner container">
+          <Link href="/#home" className="brand" aria-label="Afiq portfolio home">
+            <span>afiq@portfolio</span>
+            <b>:</b>
+          </Link>
+          <nav className="desktop-nav" aria-label="Primary navigation">
+            {navigation.map((item) => (
+              <Link key={item.label} href={item.href} className={active === item.label ? "active" : ""}>
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+          <div className="nav-actions">
+            <a
+              className="icon-button desktop-social"
+              href={siteConfig.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+            >
+              <Github size={17} />
+            </a>
+            <a
+              className="icon-button desktop-social"
+              href={siteConfig.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
+              <Linkedin size={17} />
+            </a>
+            <ThemeToggle />
+            <button
+              ref={menuButtonRef}
+              className="icon-button menu-button"
+              type="button"
+              onClick={() => setOpen(true)}
+              aria-label="Open navigation menu"
+              aria-expanded={open}
+            >
+              <Menu size={19} />
+            </button>
+          </div>
         </div>
-      </div>
+      </header>
       <div
         className={`mobile-overlay ${open ? "open" : ""}`}
         aria-hidden={!open}
@@ -162,6 +164,6 @@ export function Navbar() {
           </p>
         </div>
       </div>
-    </header>
+    </>
   );
 }

@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  color-scheme: light;
+  color-scheme: light dark;
   --bg: #f7f3eb;
   --surface: #fffdf9;
   --surface-2: #eee7dc;
@@ -28,7 +28,6 @@
 }
 
 .dark {
-  color-scheme: dark;
   --bg: #050b14;
   --surface: #0b1725;
   --surface-2: #0e1c2b;
@@ -728,24 +727,37 @@ h1 em {
   z-index: 60;
   display: flex;
   justify-content: flex-end;
+  width: 100vw;
+  height: 100dvh;
+  min-height: 100vh;
+  overflow: hidden;
   visibility: hidden;
-  background: rgba(1, 6, 12, 0.62);
-  opacity: 0;
-  transition: 0.24s ease;
+  pointer-events: none;
+  background: rgba(1, 6, 12, 0);
+  transition:
+    visibility 0s linear 0.28s,
+    background-color 0.2s ease;
 }
 .mobile-overlay.open {
   visibility: visible;
-  opacity: 1;
+  pointer-events: auto;
+  background-color: rgba(1, 6, 12, 0.62);
+  transition-delay: 0s;
 }
 .mobile-drawer {
   width: min(380px, 88vw);
-  min-height: 100%;
+  height: 100%;
+  min-height: 0;
   padding: 18px 24px 30px;
-  background: var(--surface);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background-color: var(--surface);
   border-left: 1px solid var(--line);
+  isolation: isolate;
   transform: translateX(100%);
   transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
   box-shadow: -20px 0 60px rgba(0, 0, 0, 0.25);
+  will-change: transform;
 }
 .mobile-overlay.open .mobile-drawer {
   transform: translateX(0);
