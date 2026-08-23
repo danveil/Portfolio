@@ -73,7 +73,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     ],
   };
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
+    <html lang="en" className="dark" data-scroll-behavior="smooth" suppressHydrationWarning>
       <body className={`${sans.variable} ${mono.variable}`}>
         <Script
           id="theme-init"

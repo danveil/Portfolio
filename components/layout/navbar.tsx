@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Github, Linkedin, Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { type MouseEvent, useEffect, useRef, useState } from "react";
 import { navigation } from "@/data/navigation";
 import { siteConfig } from "@/data/site";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
@@ -36,6 +36,31 @@ export function Navbar() {
   }, [pathname]);
 
   const active = pathname.startsWith("/projects") ? "Projects" : activeSection;
+
+  function handleNavigation(event: MouseEvent<HTMLAnchorElement>, href: string, label: string) {
+    const [targetPath, sectionId] = href.split("#");
+
+    if (!sectionId || targetPath !== pathname) {
+      setOpen(false);
+      return;
+    }
+
+    const target = document.getElementById(sectionId);
+    if (!target) return;
+
+    event.preventDefault();
+    setOpen(false);
+    setActiveSection(label);
+
+    const behavior = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
+    if (sectionId === "home") {
+      window.scrollTo({ top: 0, behavior });
+    } else {
+      target.scrollIntoView({ behavior, block: "start" });
+    }
+
+    window.history.replaceState(null, "", href);
+  }
 
   useEffect(() => {
     if (!open) return;
@@ -73,13 +98,23 @@ export function Navbar() {
     <>
       <header className="site-header">
         <div className="nav-inner container">
-          <Link href="/#home" className="brand" aria-label="Afiq portfolio home">
+          <Link
+            href="/#home"
+            className="brand"
+            aria-label="Afiq portfolio home"
+            onClick={(event) => handleNavigation(event, "/#home", "Home")}
+          >
             <span>afiq@portfolio</span>
             <b>:</b>
           </Link>
           <nav className="desktop-nav" aria-label="Primary navigation">
             {navigation.map((item) => (
-              <Link key={item.label} href={item.href} className={active === item.label ? "active" : ""}>
+              <Link
+                key={item.label}
+                href={item.href}
+                className={active === item.label ? "active" : ""}
+                onClick={(event) => handleNavigation(event, item.href, item.label)}
+              >
                 {item.label}
               </Link>
             ))}
@@ -143,7 +178,11 @@ export function Navbar() {
           </div>
           <nav aria-label="Mobile navigation">
             {navigation.map((item, index) => (
-              <Link key={item.label} href={item.href} onClick={() => setOpen(false)}>
+              <Link
+                key={item.label}
+                href={item.href}
+                onClick={(event) => handleNavigation(event, item.href, item.label)}
+              >
                 <span>{String(index + 1).padStart(2, "0")}</span>
                 {item.label}
               </Link>

@@ -47,6 +47,7 @@
 }
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 72px;
   background: var(--bg);
 }
 body {
