@@ -1,4 +1,4 @@
-export type SkillLevel = "Learning" | "Academic Experience" | "Project Experience" | "Comfortable";
+export type SkillLevel = "Project Work" | "Coursework & Labs" | "Active Research";
 
 export interface SkillGroup {
   title: string;
@@ -8,62 +8,53 @@ export interface SkillGroup {
 }
 
 export const skillGroups: SkillGroup[] = [
-  { title: "Programming", code: "DEV-01", level: "Project Experience", items: ["Python", "Java", "C", "C++"] },
   {
     title: "Cybersecurity",
-    code: "SEC-02",
-    level: "Project Experience",
-    items: [
-      "Network Security",
-      "Security Fundamentals",
-      "Basic Vulnerability Assessment",
-      "Hashing",
-      "Security Logging",
-      "Rule-Based Detection",
-    ],
+    code: "SEC-01",
+    level: "Project Work",
+    items: ["Network security", "Static security analysis", "Security logging", "Rule-based detection"],
   },
   {
     title: "Networking",
-    code: "NET-03",
-    level: "Academic Experience",
-    items: [
-      "Subnetting",
-      "VLSM",
-      "Routing",
-      "Switching",
-      "VLAN",
-      "DHCP",
-      "Troubleshooting",
-      "Basic Firewall Configuration",
-    ],
+    code: "NET-02",
+    level: "Coursework & Labs",
+    items: ["Subnetting", "VLSM", "Routing", "Switching", "VLANs", "DHCP", "Firewall configuration"],
   },
   {
-    title: "AI Security Research",
-    code: "AIR-04",
-    level: "Learning",
-    items: ["Prompt Injection Analysis", "MCP Security", "Tool Poisoning", "Schema Hashing", "Detection Metrics"],
+    title: "Programming",
+    code: "DEV-03",
+    level: "Project Work",
+    items: ["Python", "TypeScript", "Java", "C / C++"],
   },
   {
-    title: "Platforms & Labs",
-    code: "LAB-05",
-    level: "Project Experience",
-    items: ["Cisco Packet Tracer", "GNS3", "Cisco Modeling Labs", "VMware", "Docker"],
+    title: "Web & Application Development",
+    code: "APP-04",
+    level: "Project Work",
+    items: ["Next.js", "React", "Server Components", "Responsive interfaces", "PWA fundamentals"],
   },
   {
-    title: "Development Tools",
+    title: "Databases",
+    code: "DB-05",
+    level: "Project Work",
+    items: ["PostgreSQL", "Supabase", "Prisma ORM", "Relational data modelling"],
+  },
+  {
+    title: "DevOps & Tooling",
     code: "OPS-06",
-    level: "Comfortable",
-    items: ["Git", "GitHub", "REST APIs", "JSON", "JSON-RPC", "Wireshark", "Nmap"],
+    level: "Project Work",
+    items: ["Git", "GitHub", "Netlify", "CI workflows", "Cisco Packet Tracer", "Wireshark"],
+  },
+  {
+    title: "Testing & Research",
+    code: "RES-07",
+    level: "Active Research",
+    items: ["Pytest", "Vitest", "Ruff", "mypy", "Holdout evaluation", "Detection metrics"],
   },
 ];
 
 export const currentlyLearning = [
-  "AI Security",
-  "Model Context Protocol Security",
-  "Prompt Injection",
-  "Network Security",
-  "Security Automation",
-  "Advanced Networking",
-  "Digital Forensics",
-  "Python for Security",
+  "MCP security",
+  "Prompt-injection analysis",
+  "Advanced networking",
+  "Digital forensics",
 ];

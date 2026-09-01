@@ -14,7 +14,7 @@ const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono", displ
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Muhammad Afiq Hakiki | Cybersecurity & Networking Portfolio",
+    default: "Muhammad Afiq Hakiki | Computer Science, Cybersecurity & Networking",
     template: "%s | Muhammad Afiq Hakiki",
   },
   description: siteConfig.description,
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   authors: [{ name: siteConfig.displayName }],
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Muhammad Afiq Hakiki | Cybersecurity & Networking",
+    title: "Muhammad Afiq Hakiki | Computer Science, Cybersecurity & Networking",
     description: siteConfig.description,
     type: "website",
     locale: "en_MY",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Muhammad Afiq Hakiki | Cybersecurity & Networking",
+    title: "Muhammad Afiq Hakiki | Computer Science, Cybersecurity & Networking",
     description: siteConfig.description,
     images: ["/og.png"],
   },

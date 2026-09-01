@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: PageProps<"/projects/[slug]">
   const { slug } = await params;
   const project = getProject(slug);
   if (!project) return { title: "Project not found", robots: { index: false } };
-  const title = `${project.title} | Afiq's Project Portfolio`;
+  const title = project.title;
   const description = project.summary;
   return {
     title,
@@ -158,7 +158,7 @@ export default async function ProjectDetailPage({ params }: PageProps<"/projects
             ) : null}
             {!project.github ? (
               <p className="link-note">
-                Repository link will be added when the project is ready to share. No placeholder URL is published.
+                No public repository link is currently available. No placeholder URL is published.
               </p>
             ) : null}
           </aside>

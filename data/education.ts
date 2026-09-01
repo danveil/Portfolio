@@ -1,10 +1,10 @@
 export const education = [
   {
     institution: "Universiti Malaya",
-    qualification: "Bachelor of Computer Science",
-    detail: "Computer System & Network",
+    qualification: "Bachelor of Computer Science (Computer System & Networking)",
+    detail: "Undergraduate programme",
     period: "2024 — Present",
-    score: "CGPA 3.05",
+    score: "CGPA 3.26",
     coursework: [
       "Computer Networks",
       "Routing & Switching",

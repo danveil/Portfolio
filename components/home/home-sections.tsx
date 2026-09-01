@@ -30,8 +30,8 @@ import { volunteering } from "@/data/volunteering";
 
 export function AboutSection() {
   const stats = [
-    { value: `${projects.length}`, label: "Documented project ideas" },
-    { value: "6", label: "Technical domains" },
+    { value: `${projects.length}`, label: "Public project case files" },
+    { value: `${skillGroups.length}`, label: "Recruiter-focused skill groups" },
     { value: "4", label: "Programming languages" },
     { value: "1", label: "International volunteer project" },
   ];
@@ -44,8 +44,8 @@ export function AboutSection() {
         <div className="about-grid">
           <Reveal className="about-copy">
             <p className="lead-paragraph">
-              I’m a Computer Science student at <strong>Universiti Malaya</strong>, specialising in Computer System
-              &amp; Network and building toward work in cybersecurity and network engineering.
+              I’m studying the <strong>Bachelor of Computer Science (Computer System &amp; Networking)</strong> at
+              Universiti Malaya and building toward work in cybersecurity and network engineering.
             </p>
             <p>
               My academic and project work centres on secure systems, networking technologies, defensive tooling,
@@ -163,7 +163,7 @@ export function FeaturedProjectsSection() {
         </div>
         <Reveal className="section-cta">
           <p>
-            <span>{projects.length}</span> projects and roadmap entries are documented in the explorer.
+            <span>{projects.length}</span> implemented, active, and academic case files are documented in the explorer.
           </p>
           <Link className="button secondary" href="/projects">
             Open project explorer <ArrowRight size={17} />
@@ -182,10 +182,10 @@ export function ResearchSection() {
           <div className="research-badge">
             <Sparkles size={15} /> FYP PREPARATION · RESEARCH DIRECTION
           </div>
-          <h2>Detecting Tool Poisoning in Model Context Protocol Systems</h2>
+          <h2>Lightweight detection of known tool-poisoning patterns in MCP systems</h2>
           <p>
-            Exploring lightweight methods for identifying suspicious instructions embedded inside MCP tool descriptions
-            using pattern inspection, schema hashing, rule-based detection, logging, and evaluation metrics.
+            An active research prototype for inspecting MCP tool metadata with bounded static analysis, integrity
+            fingerprints, explainable rules, preserved evaluation artifacts, and human review.
           </p>
           <div className="research-methods">
             <span>01 · INSPECT</span>
@@ -206,22 +206,19 @@ export function ResearchSection() {
           </div>
           <div className="report-row">
             <span>tool_description</span>
-            <b>INSPECTING</b>
+            <b>STATIC REVIEW</b>
           </div>
           <div className="report-row">
             <span>schema_fingerprint</span>
-            <code>sha256:84f...9c1</code>
+            <code>SHA-256 TRACKED</code>
           </div>
           <div className="report-row">
-            <span>rule_findings</span>
-            <strong>02 review</strong>
+            <span>holdout_status</span>
+            <strong>EXPOSED · NOT CONFIRMATORY</strong>
           </div>
           <div className="report-row">
             <span>research_status</span>
-            <em>IN PROGRESS</em>
-          </div>
-          <div className="mini-meter">
-            <span style={{ width: "68%" }} />
+            <em>ACTIVE PROTOTYPE</em>
           </div>
           <p>Prototype output only — findings require human review.</p>
         </Reveal>

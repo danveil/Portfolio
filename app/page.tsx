@@ -16,10 +16,10 @@ export default function HomePage() {
     <main id="main-content">
       <Hero />
       <AboutSection />
-      <SkillsSection />
       <div id="projects">
         <FeaturedProjectsSection />
       </div>
+      <SkillsSection />
       <ResearchSection />
       <ExperienceSection />
       <EducationSection />

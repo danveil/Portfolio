@@ -14,7 +14,8 @@ The site is designed for internship applications, recruiter review, academic dis
 - Safe predefined terminal commands and a professional Easter egg
 - Searchable, filterable, data-driven project explorer
 - Static project detail routes with project-specific SEO metadata
-- Honest project status labels: Completed, In Progress, Research Prototype, and Planned
+- Restrained public project status labels: Completed, Active, Prototype, and Academic
+- Planned and internal project records retained in data but excluded from public routes, counts, search, and sitemaps
 - Research spotlight for MCP tool-poisoning detection preparation
 - Education, certification, experience, leadership, volunteering, and learning timeline sections
 - Netlify Forms contact flow with validation and a honeypot
@@ -113,11 +114,11 @@ Content is separated from component logic:
 
 ### Change email, GitHub, LinkedIn, or canonical URL
 
-Edit `data/site.ts`. Replace the placeholder `url` with the final Netlify or custom domain before launch; metadata, structured data, sitemap entries, and social links use this config.
+Edit `data/site.ts`; metadata, structured data, sitemap entries, and social links use this config.
 
 ### Add a project
 
-Add a typed object in `data/projects.ts`. Every project needs a unique `slug`, summary, description, categories, technologies, truthful status, and `featured` flag. Optional fields such as `problem`, `solution`, `features`, `architecture`, `concepts`, `lessons`, `challenges`, `future`, and `whyItMatters` are rendered only when present.
+Add a typed object in `data/projects.ts`. Every project needs a unique `slug`, summary, description, categories, technologies, truthful status, explicit `visibility`, and `featured` flag. Optional fields such as `problem`, `solution`, `features`, `architecture`, `concepts`, `lessons`, `challenges`, `future`, and `whyItMatters` are rendered only when present. Keep future ideas `Internal`; only verified work should be `Public`.
 
 Do not add a placeholder GitHub or demo URL. Omit the property until the destination exists.
 
@@ -224,6 +225,6 @@ Before launch, manually inspect at 320, 375, 390, 430, 768, 1024, 1280, 1440, an
 
 - **Port 3000 is busy:** Next.js will select another port and print the local URL.
 - **Contact form does not appear in Netlify:** enable form detection, confirm `public/__forms.html` is deployed, and redeploy.
-- **Social links or metadata use a placeholder domain:** update `data/site.ts`.
+- **Social links or metadata use the wrong production domain:** update `data/site.ts`.
 - **A screenshot does not load:** use a leading slash and confirm the file exists under `public/projects/`.
 - **pnpm blocks native builds:** review the requested packages and run `pnpm approve-builds`; the workspace currently allows the expected Next.js tooling dependencies.

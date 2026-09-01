@@ -1,4 +1,6 @@
-export type ProjectStatus = "Completed" | "In Progress" | "Research Prototype" | "Planned";
+export type ProjectStatus = "Completed" | "Active" | "Academic" | "Prototype" | "Archived" | "Planned" | "Hidden";
+
+export type ProjectVisibility = "Public" | "Internal";
 
 export type ProjectCategory = "Cybersecurity" | "Networking" | "AI Security" | "Software" | "University" | "Research";
 
@@ -10,6 +12,7 @@ export interface Project {
   category: ProjectCategory[];
   technologies: string[];
   status: ProjectStatus;
+  visibility: ProjectVisibility;
   featured: boolean;
   github?: string;
   demo?: string;

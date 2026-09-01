@@ -5,10 +5,10 @@ export const siteConfig = {
   brand: "afiq@portfolio:",
   title: "Cybersecurity & Networking",
   description:
-    "Cybersecurity and networking portfolio of Muhammad Afiq Hakiki, a Computer Science student at Universiti Malaya building practical security, networking, and AI security projects.",
+    "Computer Science portfolio of Muhammad Afiq Hakiki, a Universiti Malaya student building practical cybersecurity, networking, and software projects.",
   email: "afiqhakiki1@gmail.com",
   github: "https://github.com/danveil",
   linkedin: "https://www.linkedin.com/in/muhammad-afiq-hakiki-adnan-24b85b371/",
   location: "Kuala Lumpur, Malaysia",
-  url: "https://your-domain.netlify.app",
+  url: "https://afiqhakiki.netlify.app",
 } as const;

@@ -1308,18 +1308,23 @@ h1 em {
   border-color: color-mix(in srgb, #3fb886 42%, var(--line));
   background: color-mix(in srgb, #3fb886 7%, transparent);
 }
-.status-in-progress {
+.status-active {
   color: var(--accent-2);
   border-color: color-mix(in srgb, var(--accent-2) 42%, var(--line));
   background: color-mix(in srgb, var(--accent-2) 7%, transparent);
 }
-.status-research-prototype {
+.status-prototype {
   color: #bb8cff;
   border-color: color-mix(in srgb, #bb8cff 42%, var(--line));
   background: color-mix(in srgb, #bb8cff 7%, transparent);
 }
 .status-planned {
   color: var(--muted);
+}
+.status-academic {
+  color: #d49f49;
+  border-color: color-mix(in srgb, #d49f49 42%, var(--line));
+  background: color-mix(in srgb, #d49f49 7%, transparent);
 }
 .project-card h3 {
   margin: 18px 0 10px;

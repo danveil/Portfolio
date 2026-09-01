@@ -11,14 +11,14 @@ const commands: Record<string, string[]> = {
   whoami: ["Muhammad Afiq Hakiki", "Computer Science Student", "Cybersecurity + Networking"],
   skills: ["Python · Java · C/C++", "Network security · Routing · Switching", "Docker · GNS3 · Cisco · Wireshark"],
   projects: [
-    "Featured: MCP Tool Security Inspector",
-    "Prompt Injection Detector · Subnet & VLSM Calculator · Port Scanner",
+    "Featured: CaptainOS · MCP Tool Security Inspector",
+    "Subnet & VLSM Calculator · CyberPortScanner",
     "Run: open /projects",
   ],
-  education: ["Universiti Malaya", "B.Comp.Sc. · Computer System & Network", "Current CGPA: 3.05"],
+  education: ["Universiti Malaya", "B.Comp.Sc. · Computer System & Networking", "Current CGPA: 3.26"],
   certifications: [
     "Cisco Networking Academy — ENSA · Completed",
-    "Google Professional Cybersecurity Certificate · In Progress",
+    "Google Professional Cybersecurity Certificate · Completed",
   ],
   contact: [siteConfig.email, "Kuala Lumpur, Malaysia", "Available for internship opportunities"],
   github: [siteConfig.github],

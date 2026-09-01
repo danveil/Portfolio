@@ -2,27 +2,82 @@ import type { Project, ProjectCategory, ProjectStatus } from "@/types/project";
 
 const detailedProjects: Project[] = [
   {
+    title: "CaptainOS",
+    slug: "captainos",
+    summary:
+      "A Personal Mode command center that unifies tasks, study planning, projects, calendars, and focused analytics.",
+    description:
+      "CaptainOS v0.3.0 is an active full-stack productivity application built around one owner-scoped task model, shared workspaces, and a PostgreSQL data layer.",
+    category: ["Software"],
+    technologies: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Supabase", "PWA"],
+    status: "Active",
+    visibility: "Public",
+    featured: true,
+    github: "https://github.com/danveil/captainos",
+    problem:
+      "Study, project, club, personal, and work commitments are difficult to manage when tasks and schedules live in separate tools.",
+    solution:
+      "Use one owner-scoped task engine across focused workspaces, then present the same data through Today, Mission Briefing, Calendar, Kanban, search, reminders, and analytics.",
+    features: [
+      "Universal task engine with recurrence and reminders",
+      "Today, Mission Briefing, Calendar, and Kanban views",
+      "Study Intelligence v2 with review history and readiness signals",
+      "Projects, Personal, Clubs, Work, and Study workspaces",
+      "Global search, command palette, and focused analytics",
+      "Versioned local JSON backup and restore",
+    ],
+    architecture: [
+      "Next.js App Router interface",
+      "Validated server actions and services",
+      "Prisma data access",
+      "PostgreSQL on Supabase",
+    ],
+    concepts: ["Universal task modelling", "Owner scoping", "Responsive PWA shell", "Relational data modelling"],
+    lessons: [
+      "Model shared workflows without duplicating task records",
+      "Keep date-only deadlines stable across time zones",
+      "Separate owner scoping from real authentication",
+      "Avoid caching private application data in the offline shell",
+    ],
+    challenges: [
+      "Personal Mode is owner-scoped but does not provide multi-user SaaS authentication",
+      "Browser reminders require CaptainOS to be active; there is no background push service",
+      "Backup is a manual local JSON workflow and excludes attachment binaries",
+    ],
+    future: ["Add an authentication boundary before broader hosted use", "Evaluate durable notification delivery"],
+    whyItMatters:
+      "The project demonstrates full-stack product engineering, reusable domain modelling, data integrity work, and clear handling of platform limitations.",
+  },
+  {
     title: "MCP Tool Security Inspector",
     slug: "mcp-tool-security-inspector",
-    summary: "Inspects MCP tool metadata and schemas for suspicious characteristics and unexpected changes.",
+    summary:
+      "Performs deterministic static analysis of MCP tool metadata, schemas, and integrity drift for human review.",
     description:
-      "A research prototype exploring lightweight ways to surface potentially unsafe instructions or schema changes inside Model Context Protocol tool definitions.",
+      "An active v0.3.0a1 research prototype for surfacing known tool-poisoning cues and metadata changes without invoking tools or treating heuristic findings as verdicts.",
     category: ["AI Security", "Cybersecurity", "Research"],
     technologies: ["Python", "MCP", "JSON-RPC", "SHA-256", "Regex"],
-    status: "Research Prototype",
+    status: "Prototype",
+    visibility: "Public",
     featured: true,
+    github: "https://github.com/danveil/mcp-security-inspector",
     problem:
       "MCP clients may trust tool metadata that contains suspicious or manipulative instructions. Subtle metadata changes can be difficult to notice during development.",
     solution:
-      "Parse tool definitions, inspect descriptions and parameter schemas with weighted rules, hash schemas, and produce a readable inspection report.",
+      "Load bounded static tool catalogs, normalise and fingerprint metadata, run explainable detection rules, and produce terminal, JSON, CSV, or SARIF reports.",
     features: [
       "Tool metadata parser",
       "Weighted suspicious-text rules",
       "Severity classification",
       "Schema hashing",
-      "Inspection reports",
+      "Evaluation pipeline with accuracy, precision, recall, false-positive rate, and latency metrics",
     ],
-    architecture: ["MCP tool definition", "Parser & normaliser", "Rules + hash checks", "Findings report"],
+    architecture: [
+      "Bounded catalog loader",
+      "Normaliser + SHA-256 fingerprints",
+      "Rules + risk engine",
+      "Reports + evaluation",
+    ],
     concepts: ["Tool poisoning", "Prompt injection", "JSON-RPC", "Schema integrity", "Defensive logging"],
     lessons: [
       "MCP metadata structures",
@@ -35,9 +90,9 @@ const detailedProjects: Project[] = [
       "Designing explainable scores instead of opaque classifications",
     ],
     future: [
-      "Build a labelled evaluation dataset",
-      "Add configuration profiles",
-      "Compare rules with lightweight classifiers",
+      "Freeze a candidate before further confirmatory evaluation",
+      "Create a new untouched, independently reviewed holdout",
+      "Continue false-positive and rule-ablation analysis",
     ],
     whyItMatters:
       "Tool descriptions can influence how AI systems use external capabilities. Making those descriptions inspectable supports safer experimentation.",
@@ -50,8 +105,9 @@ const detailedProjects: Project[] = [
       "An in-progress defensive tool that scores text using transparent keyword, regex, and contextual rules rather than presenting an unverified black-box claim.",
     category: ["AI Security", "Cybersecurity", "Research"],
     technologies: ["Python", "Regex", "JSON", "Pytest"],
-    status: "In Progress",
-    featured: true,
+    status: "Hidden",
+    visibility: "Internal",
+    featured: false,
     problem:
       "Suspicious instructions can be embedded in otherwise ordinary-looking text, while simple keyword matching can generate many false alarms.",
     solution:
@@ -64,13 +120,15 @@ const detailedProjects: Project[] = [
     whyItMatters: "Transparent detection rules make early AI security experiments easier to audit and improve.",
   },
   {
-    title: "Subnet & VLSM Calculator",
+    title: "SubnetVLSMCalculator",
     slug: "subnet-vlsm-calculator",
-    summary: "Plans IPv4 subnets and VLSM allocations with clear network and host ranges.",
-    description: "A networking utility for turning CIDR requirements and host counts into an auditable subnet plan.",
+    summary: "Analyzes IPv4 and IPv6 networks and produces validated, non-overlapping IPv4 VLSM allocation plans.",
+    description:
+      "A completed v0.1.0 command-line calculator for address analysis, mask conversion, VLSM planning, unused-space reporting, and safe JSON, CSV, or text export.",
     category: ["Networking", "Software"],
-    technologies: ["Python", "IPv4", "CIDR", "VLSM"],
-    status: "In Progress",
+    technologies: ["Python", "IPv4 / IPv6", "CIDR", "VLSM", "Typer"],
+    status: "Completed",
+    visibility: "Public",
     featured: true,
     problem: "Manual VLSM planning is error-prone when several networks have different host requirements.",
     solution:
@@ -89,14 +147,15 @@ const detailedProjects: Project[] = [
     whyItMatters: "Reliable address planning is foundational to scalable, maintainable networks.",
   },
   {
-    title: "Port Scanner",
+    title: "CyberPortScanner",
     slug: "port-scanner",
     summary: "A permission-aware TCP scanning tool focused on safe inputs and readable results.",
     description:
       "A practical socket-programming project for learning how services are exposed on a host and how scan results should be handled responsibly.",
     category: ["Cybersecurity", "Networking", "Software"],
-    technologies: ["Python", "TCP", "Sockets", "FastAPI"],
+    technologies: ["Python", "TCP", "Sockets", "Rich"],
     status: "Completed",
+    visibility: "Public",
     featured: true,
     problem:
       "Learning network reconnaissance requires clear scope controls, correct socket behaviour, and results that do not overstate what a port response means.",
@@ -126,7 +185,8 @@ const detailedProjects: Project[] = [
     category: ["Cybersecurity", "Software"],
     technologies: ["Python", "FastAPI", "React", "JSON"],
     status: "Planned",
-    featured: true,
+    visibility: "Internal",
+    featured: false,
     problem: "Raw logs are difficult to investigate without normalisation, filtering, and context.",
     solution:
       "Create a small ingestion pipeline, common event schema, transparent rules, and a focused review dashboard.",
@@ -145,7 +205,8 @@ const detailedProjects: Project[] = [
     category: ["Networking", "Cybersecurity"],
     technologies: ["Python", "PCAP", "Wireshark", "TCP/IP"],
     status: "Planned",
-    featured: true,
+    visibility: "Internal",
+    featured: false,
     features: ["Protocol distribution", "Conversation summary", "Top endpoints", "Suspicious pattern notes"],
     concepts: ["Packet structures", "TCP/IP", "Traffic analysis"],
     lessons: ["Planned: packet parsing", "Planned: protocol analysis"],
@@ -157,7 +218,8 @@ const detailedProjects: Project[] = [
     description: "A reusable detection component supporting the MCP security research direction.",
     category: ["AI Security", "Research"],
     technologies: ["Python", "Regex", "YAML"],
-    status: "Research Prototype",
+    status: "Hidden",
+    visibility: "Internal",
     featured: false,
     features: ["Keyword rules", "Regex rules", "Weights", "Severity classification"],
     concepts: ["Heuristic detection", "Explainability", "False positives"],
@@ -170,7 +232,8 @@ const detailedProjects: Project[] = [
       "A focused research utility for normalising tool schemas, hashing them, and reporting changes between trusted snapshots.",
     category: ["AI Security", "Research", "Cybersecurity"],
     technologies: ["Python", "SHA-256", "JSON Schema"],
-    status: "In Progress",
+    status: "Hidden",
+    visibility: "Internal",
     featured: false,
     concepts: ["Integrity monitoring", "Schema normalisation", "Cryptographic hashing"],
   },
@@ -181,7 +244,8 @@ const detailedProjects: Project[] = [
     description: "An evaluation helper for comparing transparent detection rules against labelled examples.",
     category: ["AI Security", "Research", "Software"],
     technologies: ["Python", "Statistics", "CSV"],
-    status: "In Progress",
+    status: "Hidden",
+    visibility: "Internal",
     featured: false,
     features: ["Confusion matrix", "Precision and recall", "F1 score", "False-positive rate", "Latency summary"],
   },
@@ -193,7 +257,8 @@ const detailedProjects: Project[] = [
       "A deliberately small local environment for understanding MCP tools, resources, schemas, and JSON-RPC behaviour.",
     category: ["AI Security", "Research", "Software"],
     technologies: ["Python", "MCP", "JSON-RPC"],
-    status: "In Progress",
+    status: "Hidden",
+    visibility: "Internal",
     featured: false,
     concepts: ["MCP primitives", "Tool schemas", "Local experimentation"],
   },
@@ -262,6 +327,7 @@ const roadmapProjects: Project[] = roadmapSeeds.map(([title, category, technolog
   category,
   technologies,
   status,
+  visibility: "Internal",
   featured: false,
   concepts: technologies,
   lessons: status === "Planned" ? technologies.map((item) => `Planned: ${item}`) : technologies,
@@ -301,12 +367,15 @@ const universityProjects: Project[] = [
   description: summary as string,
   category: ["University"] as ProjectCategory[],
   technologies: technologies as string[],
-  status: "Completed" as ProjectStatus,
+  status: "Academic" as ProjectStatus,
+  visibility: "Public" as const,
   featured: false,
   concepts: technologies as string[],
 }));
 
-export const projects: Project[] = [...detailedProjects, ...roadmapProjects, ...universityProjects];
+export const allProjects: Project[] = [...detailedProjects, ...roadmapProjects, ...universityProjects];
+
+export const projects = allProjects.filter((project) => project.visibility === "Public");
 
 export const featuredProjects = projects.filter((project) => project.featured);
 export const projectCategories = [

@@ -33,7 +33,7 @@ export const journey = [
   {
     year: "2024",
     title: "Universiti Malaya",
-    detail: "Started Computer Science, specialising in Computer System & Network.",
+    detail: "Started the Bachelor of Computer Science (Computer System & Networking).",
   },
   {
     year: "2025",

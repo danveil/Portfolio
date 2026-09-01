@@ -18,7 +18,7 @@ export const certifications: Certification[] = [
   {
     name: "Google Professional Cybersecurity Certificate",
     issuer: "Google",
-    status: "In Progress",
+    status: "Completed",
     skills: ["Security operations", "Linux", "Python", "Incident response"],
   },
 ];

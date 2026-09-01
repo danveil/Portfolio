@@ -5,16 +5,14 @@ import { ProjectExplorer } from "@/components/projects/project-explorer";
 import { projects } from "@/data/projects";
 
 export const metadata: Metadata = {
-  title: "Project Explorer | Muhammad Afiq Hakiki",
+  title: "Project Explorer",
   description:
     "Explore cybersecurity, networking, software, university, and AI security project work by Muhammad Afiq Hakiki.",
 };
 
 export default function ProjectsPage() {
   const completed = projects.filter((project) => project.status === "Completed").length;
-  const active = projects.filter(
-    (project) => project.status === "In Progress" || project.status === "Research Prototype",
-  ).length;
+  const active = projects.filter((project) => project.status === "Active" || project.status === "Prototype").length;
   return (
     <main id="main-content" className="projects-page">
       <section className="projects-hero">
@@ -31,15 +29,13 @@ export default function ProjectsPage() {
               <h1>
                 Project <em>Explorer</em>
               </h1>
-              <p>
-                Practical builds, research prototypes, completed coursework, and an honest roadmap for what comes next.
-              </p>
+              <p>Implemented software, active research, and academic work with scope and status stated clearly.</p>
             </div>
             <div className="case-summary">
               <FolderSearch size={24} />
               <div>
                 <strong>{projects.length}</strong>
-                <span>Documented case files</span>
+                <span>Public case files</span>
               </div>
               <div>
                 <strong>{completed}</strong>
